@@ -1,0 +1,30 @@
+= Fast Style Transfer (Johnson et al, 2016)
+Malte Dehling <mdehling@gmail.com>
+
+:gh-repo: johnson-fast-style-transfer
+:gh-branch: main
+:gh-username: mdehling
+:gh-raw: https://raw.githubusercontent.com/{gh-username}/{gh-repo}/{gh-branch}
+
+:nbviewer: https://nbviewer.org/github/{gh-username}/{gh-repo}/blob/{gh-branch}
+
+
+NOTE: The notebooks in this repository contain lots of images and, as a
+result, are fairly large.  GitHub's notebook viewer will time out when trying
+to open them, so the links below use https://nbviewer.org/[nbviewer.org]
+instead.
+
+In 2016, Johnson, Alahi, and Fei-Fei proposed a way to do fast neural style
+transfer in their article _Perceptual Losses for Real-Time Style Transfer and
+Super-Resolution_.  Their idea was to train, given a style image, a residual
+neural network to transform any content image into a stylized version of
+itself using a single forward pass of the style transfer network.  To train
+the network they use the MS-COCO/2014 dataset and minimize a weighted sum of
+Gatys' content loss between the input and output of the network and Gatys'
+style loss between the output and the given style image.  In the notebook
+{nbviewer}/fast-style-transfer.ipynb[fast-style-transfer.ipynb] I go into more
+detail and provide an implementation of this approach.  This repository
+contains pre-trained weights for a range of styles as shown in the image
+below.
+
+image:img/results/chicago-in-styles.png["Chicago in Styles"]
