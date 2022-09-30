@@ -1,10 +1,10 @@
 channels:
-  - conda-forge
   - defaults
 dependencies:
   - python=3.7
   - pip
-  - cudatoolkit=11.2
-  - cudnn=8.1.0
-  - jupyter
+  - cudatoolkit=11.3.1
+  - cudnn=8.2.1
   - notebook
+  - jupyter
+  - tensorflow=2.8.2

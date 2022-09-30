@@ -1,3 +1,2 @@
-tensorflow ~= 2.8.2
-tensorflow-datasets
 -e git+https://github.com/mdehling/nstesia.git@c1dee26#egg=nstesia
+tensorflow-datasets

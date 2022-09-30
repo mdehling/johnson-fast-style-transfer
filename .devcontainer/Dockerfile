@@ -6,7 +6,7 @@ ENV LD_LIBRARY_PATH="/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/local/
 RUN apt-get update && \
     apt-get -y install --no-install-recommends ssh tmux neovim
 
-COPY environment.yml requirements.txt /tmp/conda-tmp/
+COPY environment.yml /tmp/conda-tmp/
 RUN umask 0002 && \
     /opt/conda/bin/conda env update -n base -f /tmp/conda-tmp/environment.yml && \
     rm -rf /tmp/conda-tmp
