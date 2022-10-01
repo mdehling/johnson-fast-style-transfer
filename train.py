@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 import argparse
+from pathlib import Path
 
 from os import environ as env
 env['TF_CPP_MIN_LOG_LEVEL'] = '2'               # hide info & warnings
@@ -8,9 +9,7 @@ env['TF_FORCE_GPU_ALLOW_GROWTH'] = 'true'       # grow GPU memory as needed
 
 import tensorflow as tf
 import tensorflow_datasets as tfds
-
-from nstesia.io import load_image
-from nstesia.johnson_2016 import StyleTransferModel
+import nstesia as nst
 
 
 def parse_args():
@@ -18,8 +17,8 @@ def parse_args():
         description='Train Johnson (2016) style transfer model.',
         formatter_class=argparse.ArgumentDefaultsHelpFormatter,
     )
-    parser.add_argument('style_image', help='style image file')
-    parser.add_argument('saved_model', help='where to save the trained model')
+    parser.add_argument('style_image',
+                        help='style image file')
 
     parser.add_argument('--content_weight', type=float, default=1.0,
                         help='content weight')
@@ -37,8 +36,18 @@ def parse_args():
 
     parser.add_argument('--data_dir', default='/tmp',
                         help='dataset directory - requires ~120gb')
+    parser.add_argument('--saved_model',
+                        help='''where to save the trained model.
+                        If not provided, the model is saved in saved/{stem},
+                        i.e., given a style_image img/style/candy.jpg, the
+                        trained model is written to saved/candy.''')
 
-    return parser.parse_args()
+    args = parser.parse_args()
+
+    if args.saved_model is None:
+        args.saved_model = Path('saved') / Path(args.style_image).stem
+
+    return args
 
 
 def get_train_ds(data_dir='/tmp', batch_size=4):
@@ -55,9 +64,9 @@ def train_model(
     content_weight, style_weight, var_weight,
     train_ds, epochs,
 ):
-    style_image = load_image(style_image_file)
+    style_image = nst.io.load_image(style_image_file)
 
-    model = StyleTransferModel(
+    model = nst.johnson_2016.StyleTransferModel(
         style_image,
         normalization=normalization,
         content_weight=content_weight,
