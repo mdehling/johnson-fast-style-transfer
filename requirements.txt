@@ -1,2 +1,2 @@
--e git+https://github.com/mdehling/nstesia.git@c1dee26#egg=nstesia
+-e git+https://github.com/mdehling/nstesia.git@8f0382e#egg=nstesia
 tensorflow-datasets
