@@ -8,3 +8,4 @@ dependencies:
   - notebook
   - jupyter
   - tensorflow=2.8.2=gpu*
+  - tensorflow-datasets
