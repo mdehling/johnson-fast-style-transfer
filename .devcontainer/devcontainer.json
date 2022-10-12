@@ -5,10 +5,6 @@
 		"context": ".."
 	},
 
-	"hostRequirements": {
-		"gpus": 1
-	},
-
 	"remoteUser": "vscode",
 
 	"extensions": [
