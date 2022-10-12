@@ -9,9 +9,9 @@ with several residual blocks as a bottleneck, and it is trained to minimize a
 weighted sum of the losses introduced by Gatys, Ecker, and Bethge in their
 article _A Neural Algorithm of Artistic Style_.  It was soon suggested by
 Ulyanov, Vedaldi, and Lempitsky in their note _Instance Normalization: The
-Missing Ingredient for Fast Stylization_ that a simple change---replacing
-batch normalization layers by instance normalization---would lead to a
-significant improvement in visual results.
+Missing Ingredient for Fast Stylization_ that a simple change—replacing batch
+normalization layers by instance normalization—would lead to a significant
+improvement in visual results.
 
 In this repository I aim to give a brief description and demonstration of
 Johnson's style transfer model.  You can find the actual implementation used
@@ -54,7 +54,7 @@ Block / Layer           Description                        Output Size
 ----------------------------------------------------------------------
 conv_block_1 / conv     Convolution (32, 9x9, stride 1)
              / norm     Batch/InstanceNormalization
-             / act      Activation (ReLU)                  336x336x3
+             / act      Activation (ReLU)                  336x336x32
 
 conv_block_2 / conv     Convolution (64, 3x3, stride 2)
              / norm     Batch/InstanceNormalization
