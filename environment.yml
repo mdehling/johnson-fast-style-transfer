@@ -9,3 +9,5 @@ dependencies:
   - jupyter
   - tensorflow=2.8.2=gpu*
   - tensorflow-datasets
+  - pip:
+    - gdown
