@@ -1,5 +1,22 @@
 Fast Style Transfer (Johnson et al, 2016)
 =========================================
+In this repository I aim to give a brief description and demonstration of
+Johnson's style transfer model.  You can find the actual implementation used
+here in the module [`johnson_2016`](
+https://github.com/mdehling/nstesia/blob/main/src/nstesia/johnson_2016.py) of
+my python package [`nstesia`](https://github.com/mdehling/nstesia/).
+
+> [!NOTE]
+> There are two simple ways to run the demo notebook yourself without installing
+> any software on your local machine:
+>
+> 1. View the notebook on GitHub and click the _Open in Colab_ button (requires
+>    a Google account).
+> 2. Create a GitHub Codespace for this repository and run the notebook in
+>    VSCode (requires a GitHub account).
+
+Introduction
+------------
 In their 2016 article _Perceptual Losses for Real-Time Style Transfer and
 Super-Resolution_, Johnson, Alahi, and Fei-Fei proposed a way to perform fast
 neural style transfer. Their idea was to train, for a given style image, a
@@ -12,12 +29,6 @@ Ulyanov, Vedaldi, and Lempitsky in their note _Instance Normalization: The
 Missing Ingredient for Fast Stylization_ that a simple change—replacing batch
 normalization layers by instance normalization—would lead to a significant
 improvement in visual results.
-
-In this repository I aim to give a brief description and demonstration of
-Johnson's style transfer model.  You can find the actual implementation used
-here in the module [`johnson_2016`](
-https://github.com/mdehling/nstesia/blob/main/src/nstesia/johnson_2016.py) of
-my python package [`nstesia`](https://github.com/mdehling/nstesia/).
 
 Network Architecture
 --------------------
