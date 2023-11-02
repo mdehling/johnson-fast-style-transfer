@@ -7,6 +7,10 @@ from os import environ as env
 env['TF_CPP_MIN_LOG_LEVEL'] = '2'               # hide info & warnings
 env['TF_FORCE_GPU_ALLOW_GROWTH'] = 'true'       # grow GPU memory as needed
 
+from resource import getrlimit, setrlimit, RLIMIT_NOFILE
+low, high = getrlimit(RLIMIT_NOFILE)
+setrlimit(RLIMIT_NOFILE, (high,high))
+
 import tensorflow as tf
 import tensorflow_datasets as tfds
 import nstesia as nst
