@@ -1,2 +1,3 @@
 gdown
+tensorflow-datasets
 -e git+https://github.com/mdehling/nstesia.git#egg=nstesia
