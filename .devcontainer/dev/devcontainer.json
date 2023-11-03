@@ -1,6 +1,7 @@
 {
     "name": "dev",
-    "image": "mcr.microsoft.com/devcontainers/base:ubuntu-22.04",
+    "image": "docker.io/mdehling/ubuntu-cuda-dev:2023.11.02",
+    "postCreateCommand": "pip install -U pip setuptools && pip install -r requirements-dev.txt",
     "hostRequirements": {
         "cpus": 4,
         "memory": "32gb",
